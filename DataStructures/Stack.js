@@ -2,7 +2,7 @@ const test = () => {
     let StackWithJSFunction = new StackWithJSFunctions();
     let StackWithoutJSFunction = new StackWithoutJSFunctions();
     console.log('Add in stack:');
-    let iteration = Math.floor(3 + Math.random() * 10);
+    let iteration = Math.floor(5 + Math.random() * 10);
     for (let i = 0; i < iteration; i++) {
         randomNumber = Math.floor(Math.random() * 100);
         console.log('Number:', randomNumber);
@@ -11,7 +11,7 @@ const test = () => {
         StackWithJSFunction.print();
         StackWithoutJSFunction.print();
     }
-    iteration = Math.floor(Math.random() * 3);
+    iteration = Math.floor(Math.random() * 5);
     for (let i = 0; i < iteration; i++) {
         console.log(StackWithJSFunction.pop());
         console.log(StackWithoutJSFunction.pop());
@@ -80,9 +80,9 @@ class StackWithJSFunctions {
         return this.data[this.length() - 1];
     }
     pop() {
-        if (this.isEmpty() === false) {
-            return this.data.pop();
-        } else return 'The stack is already empty';
+        return this.isEmpty() === false
+            ? this.data.pop()
+            : 'The stack is already empty';
     }
     print() {
         console.log('Stack With JS Functions: ', this.data);
